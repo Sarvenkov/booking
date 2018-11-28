@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>
+            BOOKING
+        </h1>
+        <div class="row">
+            <aside class="filter col s4">
+                <form>
+                    <div class="input-field col s12">
+                        <select class="stars">
+                            <option value="" disabled selected>Choose one...</option>
+                            <option value="1">⭐</option>
+                            <option value="2">⭐⭐</option>
+                            <option value="3">⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                        </select>
+                        <label>Minimum rating</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select class="meal">
+                            <option value="" disabled selected>Choose one...</option>
+                            <option value="1">All Inclusive</option>
+                            <option value="2">Breakfast only</option>
+                            <option value="3">Breakfast and bed</option>
+                        </select>
+                        <label>Meal type</label>
+                    </div>
+                    <fieldset class="features">
+                        <legend>
+                            Features
+                        </legend>
+                        <p>
+                            <label>
+                                <input type="checkbox" class="filled-in wifi"/>
+                                <span>Wi-Fi</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" class="filled-in beach"/>
+                                <span>Own Beach</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" class="filled-in gym"/>
+                                <span>GYM</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" class="filled-in conference"/>
+                                <span>Conference Hall</span>
+                            </label>
+                        </p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>
+                            Region
+                        </legend>
+                        <label class="kemer">
+                            <input class="with-gap" name="region" type="radio"/>
+                            <span>Kemer</span>
+                        </label>
+                        <label class="antalya">
+                            <input class="with-gap" name="region" type="radio"/>
+                            <span>Antalya</span>
+                        </label>
+                        <label class="istanbul">
+                            <input class="with-gap" name="region" type="radio"/>
+                            <span>Istanbul</span>
+                        </label>
+                    </fieldset>
+                </form>
+              <button data-target="modal1" class="btn modal-trigger">Add a hotel</button>
+            </aside>
+            <section class="catalog col s7 offset-s1">
+              <div class="preloader-wrapper big active ml-200">
+                <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+                </div>
+              </div>
+            </section>
+        </div>
+
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <!--<button class="modal-close">x</button>-->
+          <h4 class="center-align">Adding a Hotel</h4>
+            <div class="row">
+              <form class="col s12 form-modal">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="name" type="text" class="validate name-modal" required minlength="10" maxlength="30">
+                    <label for="name">The Name of The Hotel</label>
+                    <span class="helper-text helper-name" data-success="right">from 10 to 30 character</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="description" class="validate materialize-textarea desc-modal" maxlength="140"></textarea>
+                    <label for="description">Description</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">max 140 character</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s4">
+                    <input id="rating" type="number" class="validate rating-modal" required min="1" max="5">
+                    <label for="rating">Rating</label>
+                    <span class="helper-text helper-rating" data-success="right">from 1 to 5</span>
+                  </div>
+                  <div class="input-field col s4">
+                    <select class="region-modal">
+                      <option value="" disabled selected>Region</option>
+                      <option value="1">Kemer</option>
+                      <option value="2">Antalya</option>
+                      <option value="3">Istanbul</option>
+                    </select>
+                  </div>
+                  <div class="input-field col s4">
+                    <select class="meal-modal">
+                      <option value="" disabled selected>Meal Type</option>
+                      <option value="1">Breakfast only</option>
+                      <option value="2">Breakfast and Bed</option>
+                      <option value="3">All Inclusive</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s3">
+                    <label>
+                      <input type="checkbox" class="filled-in wifi-modal"/>
+                      <span>Wi-Fi</span>
+                    </label>
+                  </div>
+                  <div class="col s3">
+                    <label>
+                      <input type="checkbox" class="filled-in beach-modal"/>
+                      <span>Own Beach</span>
+                    </label>
+                  </div>
+                  <div class="col s3">
+                    <label>
+                      <input type="checkbox" class="filled-in gym-modal"/>
+                      <span>GYM</span>
+                    </label>
+                  </div>
+                  <div class="col s3">
+                    <label>
+                      <input type="checkbox" class="filled-in conference-modal"/>
+                      <span>Conference Hall</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="warning"></div>
+              <button type="submit" class="btn submit-btn">Submit</button>
+            </form>
+            </div>
+          </div>
+        </div>
+
+    </main>
+    <template id="offer">
+        <div class="card">
+            <div class="card-image">
+                <img class="hotel-picture" src="img/1.jpg">
+                <span class="card-title"><div>Ozkayamag Falez</div><span class="stars">⭐⭐⭐⭐⭐</span></span>
+
+            </div>
+            <div class="card-content">
+                <p class="description"></p>
+                <p>
+                    <b>Meal type:</b> <span class="meal-type">AF</span>
+                </p>
+                <p>
+                    <b>Region: </b> <span class="region">Kemer</span>
+                </p>
+                <p>
+                    <ul class="features-list">
+                        <li class="feature-wifi">
+                            💻
+                        </li>
+                        <li class="feature-own-beach">
+                            🏖️
+                        </li>
+                        <li class="feature-gym">
+                            🏋️
+                        </li>
+                        <li class="feature-conference">
+                            👨‍💼
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="js/eventBus.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/hotels.js"></script>
+    <script src="js/createHotel.js"></script>
+</body>
+
+</html>
